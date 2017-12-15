@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain project-version="9">
+	<map name="app"/>
+
+	<node name="datanode"
+		 factory="org.apache.cayenne.configuration.server.XMLPoolingDataSourceFactory"
+		 schema-update-strategy="org.apache.cayenne.demo.android.cayenne.UpdateSchemaStrategy"
+		>
+		<map-ref name="app"/>
+		<data-source>
+			<driver value="org.sqldroid.SQLDroidDriver"/>
+			<url value="jdbc:sqldroid:/data/data/org.apache.cayenne.demo.cayennedemo/demo.db"/>
+			<connectionPool min="1" max="2"/>
+			<login/>
+		</data-source>
+	</node>
+</domain>
