@@ -8,9 +8,9 @@ Min Android SDK version is 19 (Android 4.4).
 
 Following parts where changed in order to launch Cayenne runtime:
 
-* Custom resource locator implemented that handle Cayenne XML files loading from Android assets
-* Network activity is explicitly allowed on UI thread (see AppModule class) as Cayenne temp-id generator lookups local host address.
-* Custom SchemaUpdateStrategy implemented (see UpdateSchemaStrategy) that allows to compare and migrate DB structure on every start.
+* Custom [resource locator](https://github.com/stariy95/cayenne-android-demo/blob/master/app/src/main/java/org/apache/cayenne/demo/android/cayenne/AssetsResourceLocator.java) implemented that handle Cayenne XML files loading from Android assets
+* Network activity is explicitly allowed on UI thread (see [AppModule](https://github.com/stariy95/cayenne-android-demo/blob/master/app/src/main/java/org/apache/cayenne/demo/android/service/AppModule.java) class) as Cayenne temp-id generator looks up local host address.
+* Custom SchemaUpdateStrategy implemented (see [UpdateSchemaStrategy](https://github.com/stariy95/cayenne-android-demo/blob/master/app/src/main/java/org/apache/cayenne/demo/android/cayenne/UpdateSchemaStrategy.java) class) that allows to compare and migrate DB structure on every start.
 
 ## Third-party dependencies
 
