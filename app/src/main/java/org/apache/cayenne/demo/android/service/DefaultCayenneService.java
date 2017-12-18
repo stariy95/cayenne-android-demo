@@ -5,7 +5,6 @@ import android.content.Context;
 import org.apache.cayenne.ObjectContext;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 import org.apache.cayenne.demo.android.cayenne.AssetsResourceLocator;
-import org.apache.cayenne.demo.android.cayenne.UrlToAssetUtils;
 import org.apache.cayenne.resource.ResourceLocator;
 
 /**
@@ -18,9 +17,6 @@ public class DefaultCayenneService implements CayenneService {
     private ObjectContext sharedContext;
 
     DefaultCayenneService(Context context) {
-        //TODO: As a side effect it installs "assets:" url schema handler, this may be not optimal solution.
-        UrlToAssetUtils.registerHandler(context.getAssets());
-
         // Build Cayenne runtime with custom resource locator, to be able load it from Android assets.
         runtime = ServerRuntime.builder()
                 .addModule(binder -> binder.bind(ResourceLocator.class).to(AssetsResourceLocator.class))

@@ -6,6 +6,7 @@ import android.os.StrictMode;
 
 import org.apache.cayenne.demo.android.activity.ArtistActivity;
 import org.apache.cayenne.demo.android.activity.MainActivity;
+import org.apache.cayenne.demo.android.cayenne.UrlToAssetUtils;
 
 import javax.inject.Singleton;
 
@@ -38,6 +39,10 @@ public class AppModule {
         // TODO: Without explicit permission here Cayenne will permanently fail to create new objects.
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+
+        // This installs "assets:" url schema handler, this may be not optimal solution.
+        UrlToAssetUtils.registerHandler(context.getAssets());
+
         return new DefaultCayenneService(context);
     }
 

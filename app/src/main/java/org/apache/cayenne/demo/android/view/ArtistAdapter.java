@@ -56,7 +56,11 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ViewHolder
         Artist artist = artists.get(position);
         holder.artistNameView.setText(artist.getName());
         holder.artistIdView.setText(artist.getObjectId().getIdSnapshot().get(Artist.ID_PK_COLUMN).toString());
-        holder.artistDateOfBirthView.setText(dateFormat.format(artist.getDateOfBirth()));
+        if(artist.getDateOfBirth() == null) {
+            holder.artistDateOfBirthView.setText("");
+        } else {
+            holder.artistDateOfBirthView.setText(dateFormat.format(artist.getDateOfBirth()));
+        }
     }
 
     @Override
